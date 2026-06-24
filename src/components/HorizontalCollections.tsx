@@ -107,7 +107,7 @@ export default function HorizontalCollections() {
       {/* Section heading above the pinned area */}
       <div
         style={{
-          padding: '80px 48px 40px',
+          padding: 'clamp(48px, 8vw, 80px) clamp(20px, 4vw, 48px) clamp(24px, 4vw, 40px)',
           backgroundColor: '#FAF7F4',
         }}
       >
@@ -273,66 +273,98 @@ export default function HorizontalCollections() {
         </div>
       </div>
 
-      {/* Mobile vertical cards */}
+      {/* Mobile swipe carousel — hidden on desktop */}
       <div
-        className="md:hidden"
+        className="collections-mobile"
         style={{
-          padding: '0 20px 60px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '20px',
           backgroundColor: '#FAF7F4',
+          paddingBottom: '48px',
         }}
       >
-        {collections.map((col, i) => (
-          <div
-            key={i}
-            style={{
-              borderRadius: '8px',
-              minHeight: '280px',
-              position: 'relative',
-              overflow: 'hidden',
-            }}
-          >
-            <img
-              src={col.img}
-              alt={col.name}
-              loading="lazy"
-              style={{
-                position: 'absolute',
-                inset: 0,
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                objectPosition: 'center',
-                display: 'block',
-              }}
-            />
-            <div style={{ position: 'absolute', inset: 0, background: col.overlay }} />
+        {/* Swipe hint */}
+        <p style={{
+          fontFamily: "'DM Sans', sans-serif",
+          fontSize: '11px',
+          letterSpacing: '0.2em',
+          textTransform: 'uppercase',
+          color: '#9E9085',
+          textAlign: 'right',
+          paddingRight: '20px',
+          marginBottom: '16px',
+        }}>
+          Swipe →
+        </p>
+        {/* Scroll-snap track */}
+        <div style={{
+          display: 'flex',
+          overflowX: 'scroll',
+          scrollSnapType: 'x mandatory',
+          WebkitOverflowScrolling: 'touch',
+          gap: '12px',
+          paddingLeft: '20px',
+          paddingRight: '20px',
+          scrollbarWidth: 'none',
+        }}>
+          {collections.map((col, i) => (
             <div
+              key={i}
               style={{
+                flex: '0 0 82vw',
+                scrollSnapAlign: 'start',
+                borderRadius: '8px',
+                aspectRatio: '3/4',
+                position: 'relative',
+                overflow: 'hidden',
+              }}
+            >
+              <img
+                src={col.img}
+                alt={col.name}
+                loading="lazy"
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  objectPosition: 'center',
+                  display: 'block',
+                }}
+              />
+              <div style={{ position: 'absolute', inset: 0, background: col.overlay }} />
+              <div style={{
                 position: 'absolute',
                 inset: 0,
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'flex-end',
-                padding: '36px 28px',
-              }}
-            >
-              <h3
-                style={{
+                padding: '28px 24px',
+              }}>
+                <span style={{
+                  position: 'absolute',
+                  top: '16px',
+                  right: '20px',
                   fontFamily: "'Cormorant Garamond', serif",
-                  fontSize: '40px',
+                  fontSize: '80px',
+                  fontWeight: 300,
+                  color: '#FFFFFF',
+                  opacity: 0.12,
+                  lineHeight: 1,
+                  userSelect: 'none',
+                }}>
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <h3 style={{
+                  fontFamily: "'Cormorant Garamond', serif",
+                  fontSize: '38px',
                   color: '#FFFFFF',
                   fontWeight: 300,
                   lineHeight: 1.1,
                   margin: '0 0 8px 0',
-                }}
-              >
-                {col.name}
-              </h3>
-              <p
-                style={{
+                }}>
+                  {col.name}
+                </h3>
+                <p style={{
                   fontFamily: "'DM Sans', sans-serif",
                   color: '#FFFFFF',
                   opacity: 0.7,
@@ -340,25 +372,35 @@ export default function HorizontalCollections() {
                   letterSpacing: '0.12em',
                   textTransform: 'uppercase',
                   margin: '0 0 16px 0',
-                }}
-              >
-                {col.brands}
-              </p>
-              <a
-                href="#new-arrivals"
-                style={{
+                }}>
+                  {col.brands}
+                </p>
+                <a href="#new-arrivals" style={{
                   color: col.linkColor,
                   fontFamily: "'DM Sans', sans-serif",
                   fontSize: '13px',
                   textDecoration: 'underline',
                   textUnderlineOffset: '3px',
-                }}
-              >
-                View Collection →
-              </a>
+                }}>
+                  View Collection →
+                </a>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+        {/* Dot indicators */}
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '6px', marginTop: '20px' }}>
+          {collections.map((_, i) => (
+            <span key={i} style={{
+              width: i === 0 ? '20px' : '6px',
+              height: '6px',
+              borderRadius: '3px',
+              backgroundColor: i === 0 ? '#D4819A' : 'rgba(158,144,133,0.4)',
+              display: 'block',
+              transition: 'all 0.3s ease',
+            }} />
+          ))}
+        </div>
       </div>
     </div>
   );

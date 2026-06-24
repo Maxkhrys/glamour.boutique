@@ -159,6 +159,17 @@ html {
   }
 }
 
+/* Collections: desktop GSAP section hidden on mobile; carousel shown instead */
+.h-section { display: block; }
+.collections-mobile { display: none; }
+
+@media (max-width: 767px) {
+  .h-section { display: none !important; }
+  .collections-mobile { display: block !important; }
+  /* Hide scrollbar on carousel track */
+  .collections-mobile div::-webkit-scrollbar { display: none; }
+}
+
 /* ── MOBILE FIRST FIXES ──────────────────────────────────────────────────── */
 @media (max-width: 768px) {
   /* Disable will-change on mobile — wastes GPU memory */
