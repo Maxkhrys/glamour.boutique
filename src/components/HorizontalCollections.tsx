@@ -118,9 +118,13 @@ export default function HorizontalCollections() {
             letterSpacing: '0.3em',
             textTransform: 'uppercase',
             color: '#9E9085',
-            marginBottom: '12px',
+            marginBottom: '16px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '14px',
           }}
         >
+          <span style={{ width: '28px', height: '1px', backgroundColor: '#D4819A', display: 'inline-block' }} />
           Curated For You
         </p>
         <h2
