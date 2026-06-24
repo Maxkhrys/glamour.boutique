@@ -7,28 +7,32 @@ gsap.registerPlugin(ScrollTrigger);
 const collections = [
   {
     name: 'Spring Pastels',
-    bg: 'linear-gradient(135deg, #F2C4D0 0%, #FAF7F4 100%)',
+    img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=900&fit=crop&q=85',
+    overlay: 'linear-gradient(to top, rgba(44,44,44,0.72) 0%, rgba(44,44,44,0.18) 60%, transparent 100%)',
     brands: 'Peruzzi · Masai',
-    textColor: '#2C2C2C',
-    linkColor: '#D4819A',
+    textColor: '#FFFFFF',
+    linkColor: '#F2C4D0',
   },
   {
     name: 'Bold Colour',
-    bg: 'linear-gradient(135deg, #D4819A 0%, #F2C4D0 100%)',
+    img: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=1200&h=900&fit=crop&q=85',
+    overlay: 'linear-gradient(to top, rgba(44,44,44,0.72) 0%, rgba(44,44,44,0.18) 60%, transparent 100%)',
     brands: 'Marie Mero · Deck',
     textColor: '#FFFFFF',
-    linkColor: '#FFFFFF',
+    linkColor: '#F2C4D0',
   },
   {
     name: 'Coastal Casual',
-    bg: 'linear-gradient(135deg, #FAF7F4 0%, #9E9085 100%)',
+    img: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1200&h=900&fit=crop&q=85',
+    overlay: 'linear-gradient(to top, rgba(44,44,44,0.72) 0%, rgba(44,44,44,0.18) 60%, transparent 100%)',
     brands: 'Deck · Robell',
-    textColor: '#2C2C2C',
-    linkColor: '#2C2C2C',
+    textColor: '#FFFFFF',
+    linkColor: '#F2C4D0',
   },
   {
     name: 'Evening Edit',
-    bg: 'linear-gradient(135deg, #2C2C2C 0%, #9E9085 100%)',
+    img: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&h=900&fit=crop&q=85',
+    overlay: 'linear-gradient(to top, rgba(20,20,20,0.82) 0%, rgba(20,20,20,0.25) 60%, transparent 100%)',
     brands: 'Marie Mero · Peruzzi',
     textColor: '#FFFFFF',
     linkColor: '#F2C4D0',
@@ -163,77 +167,106 @@ export default function HorizontalCollections() {
               style={{
                 width: '60vw',
                 height: '80vh',
-                background: col.bg,
                 borderRadius: '4px',
                 flexShrink: 0,
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'flex-end',
-                padding: '48px',
                 willChange: 'transform',
                 position: 'relative',
                 overflow: 'hidden',
               }}
             >
-              {/* Watermark number */}
-              <span
+              {/* Background photo */}
+              <img
+                src={col.img}
+                alt={col.name}
+                loading="lazy"
                 style={{
                   position: 'absolute',
-                  top: '24px',
-                  right: '32px',
-                  fontFamily: "'Cormorant Garamond', serif",
-                  fontSize: '120px',
-                  fontWeight: 300,
-                  color: col.textColor,
-                  opacity: 0.06,
-                  lineHeight: 1,
-                  userSelect: 'none',
+                  inset: 0,
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  objectPosition: 'center',
+                  display: 'block',
+                }}
+              />
+              {/* Gradient overlay */}
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background: col.overlay,
+                }}
+              />
+
+              {/* Content */}
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'flex-end',
+                  padding: '48px',
                 }}
               >
-                {String(i + 1).padStart(2, '0')}
-              </span>
-
-              <div>
-                <h3
+                {/* Watermark number */}
+                <span
                   style={{
+                    position: 'absolute',
+                    top: '24px',
+                    right: '32px',
                     fontFamily: "'Cormorant Garamond', serif",
-                    fontSize: 'clamp(48px, 5vw, 72px)',
-                    color: col.textColor,
+                    fontSize: '120px',
                     fontWeight: 300,
-                    lineHeight: 1.1,
-                    marginBottom: '12px',
-                    margin: '0 0 12px 0',
+                    color: '#FFFFFF',
+                    opacity: 0.12,
+                    lineHeight: 1,
+                    userSelect: 'none',
                   }}
                 >
-                  {col.name}
-                </h3>
-                <p
-                  style={{
-                    fontFamily: "'DM Sans', sans-serif",
-                    color: col.textColor,
-                    opacity: 0.6,
-                    marginBottom: '28px',
-                    fontSize: '12px',
-                    letterSpacing: '0.15em',
-                    textTransform: 'uppercase',
-                    margin: '0 0 28px 0',
-                  }}
-                >
-                  {col.brands}
-                </p>
-                <a
-                  href="#collections"
-                  style={{
-                    color: col.linkColor,
-                    fontFamily: "'DM Sans', sans-serif",
-                    fontSize: '13px',
-                    textDecoration: 'underline',
-                    textUnderlineOffset: '4px',
-                    letterSpacing: '0.08em',
-                  }}
-                >
-                  View Collection →
-                </a>
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+
+                <div>
+                  <h3
+                    style={{
+                      fontFamily: "'Cormorant Garamond', serif",
+                      fontSize: 'clamp(48px, 5vw, 72px)',
+                      color: col.textColor,
+                      fontWeight: 300,
+                      lineHeight: 1.1,
+                      margin: '0 0 12px 0',
+                    }}
+                  >
+                    {col.name}
+                  </h3>
+                  <p
+                    style={{
+                      fontFamily: "'DM Sans', sans-serif",
+                      color: col.textColor,
+                      opacity: 0.7,
+                      fontSize: '12px',
+                      letterSpacing: '0.15em',
+                      textTransform: 'uppercase',
+                      margin: '0 0 28px 0',
+                    }}
+                  >
+                    {col.brands}
+                  </p>
+                  <a
+                    href="#new-arrivals"
+                    style={{
+                      color: col.linkColor,
+                      fontFamily: "'DM Sans', sans-serif",
+                      fontSize: '13px',
+                      textDecoration: 'underline',
+                      textUnderlineOffset: '4px',
+                      letterSpacing: '0.08em',
+                    }}
+                  >
+                    View Collection →
+                  </a>
+                </div>
               </div>
             </div>
           ))}
@@ -255,52 +288,75 @@ export default function HorizontalCollections() {
           <div
             key={i}
             style={{
-              background: col.bg,
               borderRadius: '8px',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'flex-end',
-              padding: '36px 28px',
               minHeight: '280px',
+              position: 'relative',
+              overflow: 'hidden',
             }}
           >
-            <h3
+            <img
+              src={col.img}
+              alt={col.name}
+              loading="lazy"
               style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                fontSize: '40px',
-                color: col.textColor,
-                fontWeight: 300,
-                lineHeight: 1.1,
-                margin: '0 0 8px 0',
+                position: 'absolute',
+                inset: 0,
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                objectPosition: 'center',
+                display: 'block',
+              }}
+            />
+            <div style={{ position: 'absolute', inset: 0, background: col.overlay }} />
+            <div
+              style={{
+                position: 'absolute',
+                inset: 0,
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'flex-end',
+                padding: '36px 28px',
               }}
             >
-              {col.name}
-            </h3>
-            <p
-              style={{
-                fontFamily: "'DM Sans', sans-serif",
-                color: col.textColor,
-                opacity: 0.6,
-                fontSize: '11px',
-                letterSpacing: '0.12em',
-                textTransform: 'uppercase',
-                margin: '0 0 16px 0',
-              }}
-            >
-              {col.brands}
-            </p>
-            <a
-              href="#collections"
-              style={{
-                color: col.linkColor,
-                fontFamily: "'DM Sans', sans-serif",
-                fontSize: '13px',
-                textDecoration: 'underline',
-                textUnderlineOffset: '3px',
-              }}
-            >
-              View Collection →
-            </a>
+              <h3
+                style={{
+                  fontFamily: "'Cormorant Garamond', serif",
+                  fontSize: '40px',
+                  color: '#FFFFFF',
+                  fontWeight: 300,
+                  lineHeight: 1.1,
+                  margin: '0 0 8px 0',
+                }}
+              >
+                {col.name}
+              </h3>
+              <p
+                style={{
+                  fontFamily: "'DM Sans', sans-serif",
+                  color: '#FFFFFF',
+                  opacity: 0.7,
+                  fontSize: '11px',
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  margin: '0 0 16px 0',
+                }}
+              >
+                {col.brands}
+              </p>
+              <a
+                href="#new-arrivals"
+                style={{
+                  color: col.linkColor,
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontSize: '13px',
+                  textDecoration: 'underline',
+                  textUnderlineOffset: '3px',
+                }}
+              >
+                View Collection →
+              </a>
+            </div>
           </div>
         ))}
       </div>
