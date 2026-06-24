@@ -137,3 +137,79 @@ html {
   scrollbar-width: thin;
   scrollbar-color: var(--pink-light) transparent;
 }
+
+/* Hero elements: ensure visible if JS/GSAP doesn't run (mobile reduced-motion) */
+@media (max-width: 768px) {
+  .hero-label,
+  .hero-sub,
+  .hero-cta {
+    opacity: 1 !important;
+  }
+}
+
+/* ── MOBILE FIRST FIXES ──────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Disable will-change on mobile — wastes GPU memory */
+  .hero-bg,
+  .collection-card,
+  .brand-panel,
+  .product-card {
+    will-change: auto;
+  }
+
+  /* Hero: shorter on small phones, keep it punchy */
+  .hero-section {
+    min-height: 100svh !important;
+  }
+
+  /* Product grid: 2-col with proper gutters */
+  #new-arrivals {
+    padding: 48px 12px !important;
+  }
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+  /* Card info text smaller so it fits 2-col */
+  .product-card h3 {
+    font-size: 15px !important;
+  }
+  .product-card div[style*="padding:16px"] {
+    padding: 12px 12px 14px !important;
+  }
+
+  /* Brand panels: shorter, full overlay so text always readable */
+  .brand-panel {
+    height: 320px !important;
+  }
+  .brand-panel img {
+    object-position: center 30% !important;
+  }
+  /* Text block: always left-aligned and full-width on mobile */
+  .brand-panel > div:last-child {
+    justify-content: flex-start !important;
+    padding: 32px 24px !important;
+  }
+  /* Stronger overlay on mobile so text is never lost */
+  .brand-panel > div[style*="background:linear-gradient"] {
+    background: rgba(20, 20, 20, 0.55) !important;
+  }
+
+  /* About: already handled by existing media query in About.astro */
+
+  /* Ticker: slightly slower on small screens */
+  .marquee-track {
+    animation-duration: 28s;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Single column products below 480px */
+  .product-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  #new-arrivals {
+    padding: 40px 16px !important;
+  }
+}

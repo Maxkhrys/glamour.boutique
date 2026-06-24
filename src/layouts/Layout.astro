@@ -33,21 +33,20 @@ const {
 
   gsap.registerPlugin(ScrollTrigger);
 
-  const lenis = new Lenis({
-    duration: 1.2,
-    easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    touchMultiplier: 2,
-  });
+  // Lenis smooth scroll — desktop only; native scroll is faster on mobile
+  const isTouch = window.matchMedia('(max-width: 1024px)').matches || navigator.maxTouchPoints > 0;
 
-  gsap.ticker.add((time: number) => {
-    lenis.raf(time * 1000);
-  });
+  if (!isTouch) {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    });
+    gsap.ticker.add((time: number) => lenis.raf(time * 1000));
+    gsap.ticker.lagSmoothing(0);
+    lenis.on('scroll', ScrollTrigger.update);
+    (window as any).lenis = lenis;
+  }
 
-  gsap.ticker.lagSmoothing(0);
-
-  lenis.on('scroll', ScrollTrigger.update);
-
-  (window as any).lenis = lenis;
   (window as any).gsap = gsap;
   (window as any).ScrollTrigger = ScrollTrigger;
 </script>

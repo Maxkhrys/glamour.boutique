@@ -11,12 +11,18 @@
     class="hero-bg absolute inset-0"
     style="transform-origin: center center; will-change: transform;"
   >
-    <img
-      src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1920&h=1080&fit=crop&q=85"
-      alt="Fashion boutique hero"
-      style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"
-      fetchpriority="high"
-    />
+    <picture>
+      <source
+        media="(max-width: 768px)"
+        srcset="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&h=1100&fit=crop&q=80"
+      />
+      <img
+        src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1920&h=1080&fit=crop&q=85"
+        alt="Fashion boutique hero"
+        style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"
+        fetchpriority="high"
+      />
+    </picture>
     <!-- Dark overlay for text legibility -->
     <div style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(44,44,44,0.35) 0%, rgba(44,44,44,0.55) 100%);"></div>
   </div>
