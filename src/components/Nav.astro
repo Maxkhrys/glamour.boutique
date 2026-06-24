@@ -2,13 +2,16 @@
 ---
 
 <nav class="main-nav fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-5 flex items-center justify-between" style="background-color: transparent;">
-  <a href="/" aria-label="Glamour Boutique — Home" style="display:flex;align-items:center;">
+  <a href="/" aria-label="Glamour Boutique — Home" style="display:flex;align-items:center;gap:12px;text-decoration:none;">
     <img
       src="/images/logo.jpg"
-      alt="Glamour Boutique"
-      style="height:48px;width:48px;object-fit:contain;border-radius:50%;"
+      alt=""
+      style="height:44px;width:44px;object-fit:contain;border-radius:50%;flex-shrink:0;"
       fetchpriority="high"
     />
+    <span style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:#FFFFFF;letter-spacing:0.12em;white-space:nowrap;" class="nav-brand-name">
+      Glamour Boutique
+    </span>
   </a>
 
   <!-- Desktop nav links -->
@@ -32,9 +35,9 @@
     class="md:hidden flex flex-col gap-1.5 p-2 cursor-pointer bg-transparent border-0"
     aria-label="Open menu"
   >
-    <span class="block w-6 h-px bg-charcoal transition-all duration-300" style="background-color: #2C2C2C;"></span>
-    <span class="block w-6 h-px bg-charcoal transition-all duration-300" style="background-color: #2C2C2C;"></span>
-    <span class="block w-4 h-px bg-charcoal transition-all duration-300" style="background-color: #2C2C2C;"></span>
+    <span class="nav-bar block w-6 h-px transition-all duration-300"></span>
+    <span class="nav-bar block w-6 h-px transition-all duration-300"></span>
+    <span class="nav-bar block w-4 h-px transition-all duration-300"></span>
   </button>
 </nav>
 

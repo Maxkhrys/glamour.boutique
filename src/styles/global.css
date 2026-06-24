@@ -46,6 +46,18 @@ body {
   box-shadow: 0 1px 20px rgba(0,0,0,0.08);
 }
 
+/* Brand name colour follows nav scroll state */
+.main-nav .nav-brand-name { color: #FFFFFF; transition: color 0.4s ease; }
+.main-nav.nav-scrolled .nav-brand-name { color: #2C2C2C; }
+
+/* Nav links also start white on hero, flip to charcoal on scroll */
+.main-nav .nav-link { color: #FFFFFF; }
+.main-nav.nav-scrolled .nav-link { color: #2C2C2C; }
+
+/* Hamburger bars: white on hero, charcoal on scroll */
+.main-nav .nav-bar { background-color: #FFFFFF; transition: background-color 0.4s ease; }
+.main-nav.nav-scrolled .nav-bar { background-color: #2C2C2C; }
+
 /* Nav link underline hover */
 .nav-link {
   position: relative;
