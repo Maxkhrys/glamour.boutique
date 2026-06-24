@@ -1,0 +1,221 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import Ticker from '../components/Ticker.astro';
+import HorizontalCollections from '../components/HorizontalCollections';
+import ProductGrid from '../components/ProductGrid.astro';
+import BrandShowcase from '../components/BrandShowcase.astro';
+import About from '../components/About.astro';
+import Visit from '../components/Visit.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Glamour Boutique Enniscorthy — Honest Fashion Advice">
+  <Nav />
+  <main>
+    <Hero />
+    <Ticker />
+    <HorizontalCollections client:load />
+    <ProductGrid />
+    <BrandShowcase />
+    <About />
+    <Visit />
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Wait for DOM + fonts
+  function init() {
+    const mm = gsap.matchMedia();
+
+    // ─── NAV SCROLL ──────────────────────────────────────────────────────────
+    const nav = document.querySelector('.main-nav') as HTMLElement | null;
+    if (nav) {
+      ScrollTrigger.create({
+        start: '80px top',
+        onEnter: () => nav.classList.add('nav-scrolled'),
+        onLeaveBack: () => nav.classList.remove('nav-scrolled'),
+      });
+    }
+
+    // ─── HERO ANIMATIONS ─────────────────────────────────────────────────────
+    mm.add('(prefers-reduced-motion: no-preference)', () => {
+      // Ken Burns on hero background
+      gsap.to('.hero-bg', {
+        scale: 1.08,
+        duration: 8,
+        ease: 'none',
+      });
+
+      // Hero text: split H1 into words manually
+      const h1 = document.querySelector('.hero-h1') as HTMLElement | null;
+      if (h1) {
+        const originalText = h1.innerText;
+        const words = originalText.split(' ');
+        h1.innerHTML = words
+          .map(
+            (word) =>
+              `<span class="word-wrap" style="display:inline-block;overflow:hidden;"><span class="word-inner" style="display:inline-block;will-change:transform;">${word}</span></span>`
+          )
+          .join(' ');
+
+        const wordInners = h1.querySelectorAll('.word-inner');
+        const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+        tl.from('.hero-label', {
+          opacity: 0,
+          y: 16,
+          duration: 0.7,
+        })
+          .from(
+            wordInners,
+            {
+              y: 90,
+              opacity: 0,
+              stagger: 0.07,
+              duration: 0.9,
+            },
+            0.25
+          )
+          .to('.hero-label', { opacity: 1, duration: 0 }, 0)
+          .from(
+            '.hero-sub',
+            {
+              opacity: 0,
+              y: 24,
+              duration: 0.7,
+            },
+            0.75
+          )
+          .to('.hero-sub', { opacity: 1, duration: 0 }, 0.75)
+          .from(
+            '.hero-cta',
+            {
+              opacity: 0,
+              y: 20,
+              duration: 0.6,
+            },
+            0.9
+          )
+          .to('.hero-cta', { opacity: 1, duration: 0 }, 0.9);
+      }
+
+      // ─── PRODUCT GRID BATCH REVEAL ──────────────────────────────────────────
+      ScrollTrigger.batch('.product-card', {
+        onEnter: (elements: Element[]) =>
+          gsap.from(elements, {
+            y: 60,
+            opacity: 0,
+            stagger: 0.1,
+            duration: 0.9,
+            ease: 'power3.out',
+          }),
+        start: 'top 90%',
+        once: true,
+      });
+
+      // ─── BRAND PANELS PARALLAX ─────────────────────────────────────────────
+      document.querySelectorAll('.brand-panel').forEach((panel) => {
+        gsap.fromTo(
+          panel,
+          { backgroundPosition: '0% 50%' },
+          {
+            backgroundPosition: '100% 50%',
+            ease: 'none',
+            scrollTrigger: {
+              trigger: panel,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: true,
+            },
+          }
+        );
+      });
+
+      // ─── ABOUT SECTION ─────────────────────────────────────────────────────
+      const aboutParas = document.querySelectorAll('.about-para');
+      aboutParas.forEach((para) => {
+        gsap.from(para, {
+          opacity: 0,
+          y: 30,
+          duration: 0.8,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: para,
+            start: 'top 88%',
+            once: true,
+          },
+        });
+      });
+
+      gsap.from('.about-heading', {
+        opacity: 0,
+        y: 40,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.about-heading',
+          start: 'top 85%',
+          once: true,
+        },
+      });
+
+      // ─── VISIT SECTION FADE UP ─────────────────────────────────────────────
+      gsap.from('.visit-section', {
+        opacity: 0,
+        y: 50,
+        duration: 1.2,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.visit-section',
+          start: 'top 85%',
+          once: true,
+        },
+      });
+
+      // ─── SECTION HEADINGS ──────────────────────────────────────────────────
+      document.querySelectorAll('h2').forEach((heading) => {
+        if (!heading.closest('.hero-section') && !heading.closest('.h-section')) {
+          gsap.from(heading, {
+            opacity: 0,
+            y: 40,
+            duration: 0.9,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: heading,
+              start: 'top 88%',
+              once: true,
+            },
+          });
+        }
+      });
+    });
+
+    // ─── REFRESH ON FONT LOAD ─────────────────────────────────────────────────
+    document.fonts.ready.then(() => {
+      ScrollTrigger.refresh();
+    });
+
+    // ─── RESIZE ──────────────────────────────────────────────────────────────
+    let resizeTimer: ReturnType<typeof setTimeout>;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 250);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>

@@ -1,0 +1,151 @@
+---
+const brands = [
+  {
+    name: 'PERUZZI',
+    tagline: 'Italian elegance, effortlessly wearable.',
+    copy: 'Relaxed silhouettes with a Mediterranean soul.',
+    bg: 'linear-gradient(to right, #D4819A, #F2C4D0)',
+    textDark: false,
+  },
+  {
+    name: 'ROBELL',
+    tagline: 'Precision-cut trousers and separates.',
+    copy: 'Designed for the modern Irish woman.',
+    bg: 'linear-gradient(to right, #EAE0D8, #FAF7F4)',
+    textDark: true,
+  },
+  {
+    name: 'DECK',
+    tagline: 'Relaxed French coastal style.',
+    copy: 'Stripes, linens and easy layering.',
+    bg: 'linear-gradient(to right, #DDEAF5, #EAE8F0)',
+    textDark: true,
+  },
+  {
+    name: 'MARIE MERO',
+    tagline: 'Statement dresses and occasion wear.',
+    copy: 'Effortless grace for every moment.',
+    bg: 'linear-gradient(to right, #F5E6EB, #F2C4D0)',
+    textDark: true,
+  },
+  {
+    name: 'MASAI',
+    tagline: 'Danish simplicity with bold creative spirit.',
+    copy: 'Functional, artistic, free.',
+    bg: 'linear-gradient(to right, #E8E0D8, #2C2C2C)',
+    textDark: false,
+  },
+];
+---
+
+<section id="brands" style="background-color: #FAF7F4;">
+  <!-- Heading -->
+  <div style="padding: 100px 48px 60px; max-width: 1200px; margin: 0 auto;">
+    <p
+      style="font-family: 'DM Sans', sans-serif; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: #9E9085; margin-bottom: 12px;"
+    >
+      In Store Now
+    </p>
+    <h2
+      style="font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 5vw, 64px); font-weight: 300; color: #2C2C2C; line-height: 1.05; margin: 0;"
+    >
+      The Brands We Love
+    </h2>
+  </div>
+
+  <!-- Brand panels -->
+  <div>
+    {brands.map((brand, i) => (
+      <div
+        class="brand-panel"
+        style={`
+          background: ${brand.bg};
+          background-size: 200% 100%;
+          background-position: 0% 50%;
+          height: 500px;
+          display: flex;
+          align-items: center;
+          padding: 60px 48px;
+          position: relative;
+          overflow: hidden;
+          justify-content: ${i % 2 === 0 ? 'flex-start' : 'flex-end'};
+        `}
+      >
+        <!-- Watermark brand name -->
+        <span
+          style={`
+            position: absolute;
+            ${i % 2 === 0 ? 'right: -20px;' : 'left: -20px;'}
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(80px, 10vw, 140px);
+            font-weight: 300;
+            color: ${brand.textDark ? '#2C2C2C' : '#FFFFFF'};
+            opacity: 0.08;
+            white-space: nowrap;
+            user-select: none;
+            pointer-events: none;
+            line-height: 1;
+          `}
+        >
+          {brand.name}
+        </span>
+
+        <!-- Content -->
+        <div style="position: relative; z-index: 1; max-width: 400px;">
+          <h3
+            style={`
+              font-family: 'Cormorant Garamond', serif;
+              font-size: clamp(32px, 3.5vw, 48px);
+              font-weight: 400;
+              color: ${brand.textDark ? '#2C2C2C' : '#FFFFFF'};
+              line-height: 1.1;
+              margin: 0 0 12px;
+              letter-spacing: 0.04em;
+            `}
+          >
+            {brand.name}
+          </h3>
+          <p
+            style={`
+              font-family: 'DM Sans', sans-serif;
+              font-size: 15px;
+              color: ${brand.textDark ? '#2C2C2C' : '#FFFFFF'};
+              opacity: 0.85;
+              line-height: 1.6;
+              margin: 0 0 6px;
+            `}
+          >
+            {brand.tagline}
+          </p>
+          <p
+            style={`
+              font-family: 'DM Sans', sans-serif;
+              font-size: 14px;
+              color: ${brand.textDark ? '#2C2C2C' : '#FFFFFF'};
+              opacity: 0.65;
+              line-height: 1.6;
+              margin: 0 0 28px;
+            `}
+          >
+            {brand.copy}
+          </p>
+          <a
+            href="#visit"
+            style={`
+              font-family: 'DM Sans', sans-serif;
+              font-size: 13px;
+              color: ${brand.textDark ? '#D4819A' : '#FFFFFF'};
+              text-decoration: underline;
+              text-underline-offset: 4px;
+              letter-spacing: 0.05em;
+            `}
+          >
+            In Store Now →
+          </a>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

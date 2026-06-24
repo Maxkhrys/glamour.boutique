@@ -1,0 +1,124 @@
+---
+---
+
+<section
+  id="about"
+  style="background-color: #FAF7F4; padding: 0;"
+>
+  <div
+    style="max-width: 1200px; margin: 0 auto; padding: 100px 48px; display: flex; gap: 80px; align-items: flex-start;"
+    class="about-inner"
+  >
+    <!-- Left sticky panel -->
+    <div
+      class="about-sticky"
+      style="flex: 0 0 400px; min-height: 500px; background-color: #F2C4D0; border-radius: 4px; display: flex; align-items: center; justify-content: center; position: sticky; top: 100px; overflow: hidden;"
+    >
+      <!-- Watermark text -->
+      <div style="text-align: center; padding: 40px; position: relative;">
+        <span
+          style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: 'Cormorant Garamond', serif; font-size: 120px; font-weight: 300; color: rgba(212,129,154,0.15); white-space: nowrap; user-select: none; pointer-events: none; line-height: 1;"
+        >
+          Est.
+        </span>
+        <p
+          style="font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: #D4819A; margin: 0 0 8px; position: relative; z-index: 1; letter-spacing: 0.1em;"
+        >
+          Est.
+        </p>
+        <p
+          style="font-family: 'Cormorant Garamond', serif; font-size: 96px; font-weight: 300; color: #2C2C2C; margin: 0; line-height: 1; position: relative; z-index: 1;"
+        >
+          1999
+        </p>
+        <div style="margin-top: 24px; position: relative; z-index: 1;">
+          <div style="width: 32px; height: 1px; background-color: #D4819A; margin: 0 auto 16px;"></div>
+          <p style="font-family: 'DM Sans', sans-serif; font-size: 12px; color: #9E9085; letter-spacing: 0.15em; text-transform: uppercase; margin: 0;">
+            Enniscorthy
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right scrolling content -->
+    <div style="flex: 1; padding-top: 20px;">
+      <p
+        style="font-family: 'DM Sans', sans-serif; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: #9E9085; margin-bottom: 20px;"
+      >
+        Our Story
+      </p>
+      <h2
+        class="about-heading"
+        style="font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 4vw, 56px); font-weight: 300; color: #2C2C2C; line-height: 1.1; margin: 0 0 40px;"
+      >
+        26 Years of<br />Honest Fashion
+      </h2>
+
+      <div class="about-body" style="display: flex; flex-direction: column; gap: 28px;">
+        <p
+          class="about-para"
+          style="font-family: 'DM Sans', sans-serif; font-size: 16px; color: #2C2C2C; line-height: 1.85; margin: 0; opacity: 0.85;"
+        >
+          Glamour Boutique has been a cornerstone of Enniscorthy's Main Street since 1999. Founded by Mary Hudson-Ryan, and now home to a team of passionate stylists — Miriam, Lyndsey, Nadia and Jo — we've built our reputation on one simple principle: honest fashion advice.
+        </p>
+
+        <p
+          class="about-para"
+          style="font-family: 'DM Sans', sans-serif; font-size: 16px; color: #2C2C2C; line-height: 1.85; margin: 0; opacity: 0.85;"
+        >
+          We stock the labels that actually work for real women — Peruzzi, Robell, Deck, Marie Mero, Masai and more — because beautiful clothes should feel as good as they look.
+        </p>
+
+        <p
+          class="about-para"
+          style="font-family: 'DM Sans', sans-serif; font-size: 16px; color: #2C2C2C; line-height: 1.85; margin: 0; opacity: 0.85;"
+        >
+          New stock arrives every single week. Come in, try everything on, and let us find your perfect fit.
+        </p>
+
+        <!-- Team callout -->
+        <div style="margin-top: 20px; padding: 32px; background-color: rgba(212,129,154,0.08); border-left: 2px solid #D4819A; border-radius: 0 4px 4px 0;">
+          <p style="font-family: 'Cormorant Garamond', serif; font-size: 20px; font-style: italic; color: #D4819A; margin: 0 0 12px;">
+            "We believe every woman deserves to feel wonderful in what she wears."
+          </p>
+          <p style="font-family: 'DM Sans', sans-serif; font-size: 13px; color: #9E9085; margin: 0; letter-spacing: 0.05em;">
+            — Mary Hudson-Ryan, Founder
+          </p>
+        </div>
+
+        <!-- Meet the team -->
+        <div style="margin-top: 16px;">
+          <p style="font-family: 'DM Sans', sans-serif; font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; color: #9E9085; margin-bottom: 16px;">
+            The Team
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+            {['Mary', 'Miriam', 'Lyndsey', 'Nadia', 'Jo'].map((name) => (
+              <span
+                style="font-family: 'Cormorant Garamond', serif; font-size: 18px; color: #2C2C2C; padding: 8px 20px; border: 1px solid rgba(212,129,154,0.3); border-radius: 24px;"
+              >
+                {name}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (max-width: 768px) {
+    .about-inner {
+      flex-direction: column !important;
+      gap: 40px !important;
+      padding: 60px 24px !important;
+    }
+    .about-sticky {
+      position: relative !important;
+      top: auto !important;
+      flex: none !important;
+      width: 100% !important;
+      min-height: 280px !important;
+    }
+  }
+</style>

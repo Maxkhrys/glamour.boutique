@@ -1,0 +1,33 @@
+---
+const items = [
+  'PERUZZI', '·', 'ROBELL', '·', 'DECK', '·', 'MARIE MERO', '·', 'MASAI', '·', 'NEW ARRIVALS WEEKLY', '·',
+];
+
+const ticker = items.join('  ');
+const repeated = `${ticker}  ${ticker}  ${ticker}  `;
+---
+
+<div class="ticker-section overflow-hidden" style="background-color: #2C2C2C; height: 48px; display: flex; align-items: center;">
+  <div class="marquee-track flex items-center whitespace-nowrap" style="gap: 0;">
+    <span
+      class="text-white uppercase text-sm"
+      style="font-family: 'DM Sans', sans-serif; letter-spacing: 0.2em; color: #FFFFFF; font-size: 12px; padding-right: 60px;"
+    >
+      {repeated}
+    </span>
+    <span
+      class="text-white uppercase text-sm"
+      style="font-family: 'DM Sans', sans-serif; letter-spacing: 0.2em; color: #FFFFFF; font-size: 12px; padding-right: 60px;"
+      aria-hidden="true"
+    >
+      {repeated}
+    </span>
+    <span
+      class="text-white uppercase text-sm"
+      style="font-family: 'DM Sans', sans-serif; letter-spacing: 0.2em; color: #FFFFFF; font-size: 12px; padding-right: 60px;"
+      aria-hidden="true"
+    >
+      {repeated}
+    </span>
+  </div>
+</div>

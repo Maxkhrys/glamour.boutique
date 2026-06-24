@@ -1,0 +1,63 @@
+---
+---
+
+<section
+  class="hero-section relative flex items-center justify-center overflow-hidden"
+  style="height: 100vh; min-height: 600px;"
+  id="hero"
+>
+  <!-- Gradient background with Ken Burns -->
+  <div
+    class="hero-bg absolute inset-0"
+    style="background: linear-gradient(135deg, #F2C4D0 0%, #FAF7F4 40%, #D4819A 100%); transform-origin: center center; will-change: transform;"
+  ></div>
+
+  <!-- Content -->
+  <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+    <!-- Label -->
+    <p
+      class="hero-label uppercase text-sm tracking-widest mb-8"
+      style="font-family: 'DM Sans', sans-serif; font-size: 11px; letter-spacing: 0.3em; color: #9E9085; opacity: 0;"
+    >
+      Est. 1999 &nbsp;·&nbsp; Enniscorthy, Co. Wexford
+    </p>
+
+    <!-- H1 with word splitting -->
+    <h1
+      class="hero-h1 font-cormorant font-light text-charcoal leading-tight mb-6"
+      style="font-family: 'Cormorant Garamond', serif; font-size: clamp(52px, 8vw, 96px); font-weight: 300; color: #2C2C2C; line-height: 1.05; letter-spacing: -0.02em;"
+    >
+      Where Style Meets Warmth
+    </h1>
+
+    <!-- Subline -->
+    <p
+      class="hero-sub text-stone mb-10"
+      style="font-family: 'DM Sans', sans-serif; font-size: clamp(15px, 2vw, 18px); color: #9E9085; opacity: 0; max-width: 520px; margin: 0 auto 2.5rem; line-height: 1.7;"
+    >
+      New stock arriving weekly. Brands you love, curated with care.
+    </p>
+
+    <!-- CTA Button -->
+    <a
+      href="#collections"
+      class="hero-cta inline-block text-white rounded-full uppercase tracking-widest text-sm font-medium"
+      style="background-color: #D4819A; color: #FFFFFF; padding: 16px 40px; font-family: 'DM Sans', sans-serif; font-size: 12px; letter-spacing: 0.18em; text-decoration: none; opacity: 0; transition: transform 0.3s ease, box-shadow 0.3s ease; will-change: transform;"
+      onmouseenter="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 40px rgba(212,129,154,0.4)'"
+      onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='none'"
+    >
+      Explore Collections
+    </a>
+  </div>
+
+  <!-- Scroll chevron -->
+  <div
+    class="bounce-chevron absolute bottom-8 left-1/2"
+    style="transform: translateX(-50%);"
+    aria-hidden="true"
+  >
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 7l6 6 6-6" stroke="#9E9085" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</section>

@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-pink: #D4819A;
+  --color-pink-light: #F2C4D0;
+  --color-cream: #FAF7F4;
+  --color-charcoal: #2C2C2C;
+  --color-stone: #9E9085;
+  --color-white: #FFFFFF;
+  --font-cormorant: 'Cormorant Garamond', Georgia, serif;
+  --font-dm: 'DM Sans', system-ui, sans-serif;
+}
+
+:root {
+  --pink: #D4819A;
+  --pink-light: #F2C4D0;
+  --cream: #FAF7F4;
+  --charcoal: #2C2C2C;
+  --stone: #9E9085;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--charcoal);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Nav transition styles */
+.main-nav {
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+.main-nav.nav-scrolled {
+  background-color: var(--cream) !important;
+  box-shadow: 0 1px 20px rgba(0,0,0,0.08);
+}
+
+/* Nav link underline hover */
+.nav-link {
+  position: relative;
+  padding-bottom: 2px;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--pink);
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Ticker marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+.marquee-track {
+  animation: marquee 20s linear infinite;
+}
+
+/* Chevron bounce animation */
+@keyframes bounce-chevron {
+  0%, 100% { transform: translateY(0); opacity: 0.7; }
+  50% { transform: translateY(8px); opacity: 1; }
+}
+.bounce-chevron {
+  animation: bounce-chevron 1.5s ease-in-out infinite;
+}
+
+/* Splitting.js word spans */
+.word {
+  display: inline-block;
+  overflow: hidden;
+}
+.word > .word-inner {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* Product card hover */
+.product-card {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(44, 44, 44, 0.15);
+}
+.product-card .card-image {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+}
+.product-card:hover .card-image-inner {
+  transform: scale(1.05);
+}
+
+/* GSAP will-change for animated elements */
+.hero-bg,
+.collection-card,
+.brand-panel,
+.product-card {
+  will-change: transform;
+}
+
+/* Maps iframe pink tint */
+.maps-wrapper iframe {
+  filter: saturate(0.7) hue-rotate(300deg) brightness(0.95);
+  opacity: 0.9;
+}
+
+/* About sticky */
+.about-sticky {
+  position: sticky;
+  top: 100px;
+  align-self: flex-start;
+}
+
+/* Smooth scrollbar hiding */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--pink-light) transparent;
+}
