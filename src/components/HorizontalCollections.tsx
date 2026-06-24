@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 const collections = [
   {
     name: 'Spring Pastels',
-    img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=900&fit=crop&q=85',
+    img: 'https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?w=1200&h=900&fit=crop&q=85',
     overlay: 'linear-gradient(to top, rgba(44,44,44,0.72) 0%, rgba(44,44,44,0.18) 60%, transparent 100%)',
     brands: 'Peruzzi · Masai',
     textColor: '#FFFFFF',

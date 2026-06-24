@@ -4,36 +4,48 @@ const brands = [
     name: 'PERUZZI',
     tagline: 'Italian elegance, effortlessly wearable.',
     copy: 'Relaxed silhouettes with a Mediterranean soul.',
-    bg: 'linear-gradient(to right, #D4819A, #F2C4D0)',
-    textDark: false,
+    img: 'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=1600&h=600&fit=crop&q=85',
+    imgPos: 'center 30%',
+    // text left → dark overlay on left side
+    overlay: 'linear-gradient(to right, rgba(44,22,30,0.82) 0%, rgba(44,22,30,0.5) 45%, transparent 75%)',
+    align: 'left',
   },
   {
     name: 'ROBELL',
     tagline: 'Precision-cut trousers and separates.',
     copy: 'Designed for the modern Irish woman.',
-    bg: 'linear-gradient(to right, #EAE0D8, #FAF7F4)',
-    textDark: true,
+    img: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1600&h=600&fit=crop&q=85',
+    imgPos: 'center top',
+    // text right → dark overlay on right side
+    overlay: 'linear-gradient(to left, rgba(30,30,30,0.82) 0%, rgba(30,30,30,0.5) 45%, transparent 75%)',
+    align: 'right',
   },
   {
     name: 'DECK',
     tagline: 'Relaxed French coastal style.',
     copy: 'Stripes, linens and easy layering.',
-    bg: 'linear-gradient(to right, #DDEAF5, #EAE8F0)',
-    textDark: true,
+    img: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1600&h=600&fit=crop&q=85',
+    imgPos: 'center',
+    overlay: 'linear-gradient(to right, rgba(20,30,44,0.82) 0%, rgba(20,30,44,0.5) 45%, transparent 75%)',
+    align: 'left',
   },
   {
     name: 'MARIE MERO',
     tagline: 'Statement dresses and occasion wear.',
     copy: 'Effortless grace for every moment.',
-    bg: 'linear-gradient(to right, #F5E6EB, #F2C4D0)',
-    textDark: true,
+    img: 'https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?w=1600&h=600&fit=crop&q=85',
+    imgPos: 'center top',
+    overlay: 'linear-gradient(to left, rgba(44,22,30,0.82) 0%, rgba(44,22,30,0.5) 45%, transparent 75%)',
+    align: 'right',
   },
   {
     name: 'MASAI',
     tagline: 'Danish simplicity with bold creative spirit.',
     copy: 'Functional, artistic, free.',
-    bg: 'linear-gradient(to right, #E8E0D8, #2C2C2C)',
-    textDark: false,
+    img: 'https://images.unsplash.com/photo-1524234107056-1c1f48f64ab8?w=1600&h=600&fit=crop&q=85',
+    imgPos: 'center 20%',
+    overlay: 'linear-gradient(to right, rgba(20,20,20,0.85) 0%, rgba(20,20,20,0.5) 45%, transparent 75%)',
+    align: 'left',
   },
 ];
 ---
@@ -55,34 +67,33 @@ const brands = [
 
   <!-- Brand panels -->
   <div>
-    {brands.map((brand, i) => (
+    {brands.map((brand) => (
       <div
         class="brand-panel"
-        style={`
-          background: ${brand.bg};
-          background-size: 200% 100%;
-          background-position: 0% 50%;
-          height: 500px;
-          display: flex;
-          align-items: center;
-          padding: 60px 48px;
-          position: relative;
-          overflow: hidden;
-          justify-content: ${i % 2 === 0 ? 'flex-start' : 'flex-end'};
-        `}
+        style="height: 500px; position: relative; overflow: hidden;"
       >
+        <!-- Photo -->
+        <img
+          src={brand.img}
+          alt={brand.name}
+          loading="lazy"
+          style={`position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:${brand.imgPos};display:block;`}
+        />
+        <!-- Directional overlay -->
+        <div style={`position:absolute;inset:0;background:${brand.overlay};`} />
+
         <!-- Watermark brand name -->
         <span
           style={`
             position: absolute;
-            ${i % 2 === 0 ? 'right: -20px;' : 'left: -20px;'}
+            ${brand.align === 'left' ? 'right: -20px;' : 'left: -20px;'}
             top: 50%;
             transform: translateY(-50%);
             font-family: 'Cormorant Garamond', serif;
             font-size: clamp(80px, 10vw, 140px);
             font-weight: 300;
-            color: ${brand.textDark ? '#2C2C2C' : '#FFFFFF'};
-            opacity: 0.08;
+            color: #FFFFFF;
+            opacity: 0.07;
             white-space: nowrap;
             user-select: none;
             pointer-events: none;
@@ -93,57 +104,35 @@ const brands = [
         </span>
 
         <!-- Content -->
-        <div style="position: relative; z-index: 1; max-width: 400px;">
-          <h3
-            style={`
-              font-family: 'Cormorant Garamond', serif;
-              font-size: clamp(32px, 3.5vw, 48px);
-              font-weight: 400;
-              color: ${brand.textDark ? '#2C2C2C' : '#FFFFFF'};
-              line-height: 1.1;
-              margin: 0 0 12px;
-              letter-spacing: 0.04em;
-            `}
-          >
-            {brand.name}
-          </h3>
-          <p
-            style={`
-              font-family: 'DM Sans', sans-serif;
-              font-size: 15px;
-              color: ${brand.textDark ? '#2C2C2C' : '#FFFFFF'};
-              opacity: 0.85;
-              line-height: 1.6;
-              margin: 0 0 6px;
-            `}
-          >
-            {brand.tagline}
-          </p>
-          <p
-            style={`
-              font-family: 'DM Sans', sans-serif;
-              font-size: 14px;
-              color: ${brand.textDark ? '#2C2C2C' : '#FFFFFF'};
-              opacity: 0.65;
-              line-height: 1.6;
-              margin: 0 0 28px;
-            `}
-          >
-            {brand.copy}
-          </p>
-          <a
-            href="#visit"
-            style={`
-              font-family: 'DM Sans', sans-serif;
-              font-size: 13px;
-              color: ${brand.textDark ? '#D4819A' : '#FFFFFF'};
-              text-decoration: underline;
-              text-underline-offset: 4px;
-              letter-spacing: 0.05em;
-            `}
-          >
-            In Store Now →
-          </a>
+        <div
+          style={`
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: ${brand.align === 'left' ? 'flex-start' : 'flex-end'};
+            padding: 60px 72px;
+          `}
+        >
+          <div style="max-width: 380px;">
+            <h3
+              style="font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 3.5vw, 48px); font-weight: 400; color: #FFFFFF; line-height: 1.1; margin: 0 0 12px; letter-spacing: 0.04em;"
+            >
+              {brand.name}
+            </h3>
+            <p style="font-family: 'DM Sans', sans-serif; font-size: 15px; color: #FFFFFF; opacity: 0.9; line-height: 1.6; margin: 0 0 6px;">
+              {brand.tagline}
+            </p>
+            <p style="font-family: 'DM Sans', sans-serif; font-size: 14px; color: #FFFFFF; opacity: 0.65; line-height: 1.6; margin: 0 0 28px;">
+              {brand.copy}
+            </p>
+            <a
+              href="#visit"
+              style="font-family: 'DM Sans', sans-serif; font-size: 13px; color: #F2C4D0; text-decoration: underline; text-underline-offset: 4px; letter-spacing: 0.05em;"
+            >
+              In Store Now →
+            </a>
+          </div>
         </div>
       </div>
     ))}
