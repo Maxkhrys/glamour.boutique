@@ -5,143 +5,145 @@ const products = [
     brand: 'Glamour Exclusive',
     price: '€38',
     img: '/images/orchid-earrings.jpg',
-    color: '#F5E8D0',
     badge: 'New In',
+    pos: 'center',
   },
   {
     name: 'Tropical Tie-Front Top',
     brand: 'Peruzzi',
     price: '€79',
     img: '/images/tropical-tie-top.jpg',
-    color: '#F2C4D0',
     badge: 'New In',
+    pos: 'top center',
   },
   {
-    name: 'Blue Linen Zip Top',
+    name: 'Blue Linen Zip-Front Top',
     brand: 'Masai',
     price: '€119',
-    img: '/images/blue-linen-top-full.jpg',
-    color: '#DDEAF5',
+    img: '/images/blue-linen-zip-top.jpg',
     badge: 'New In',
+    pos: 'top center',
   },
   {
-    name: 'Blue Linen Zip Top — Detail',
-    brand: 'Masai',
-    price: '€119',
-    img: '/images/blue-linen-top-detail.jpg',
-    color: '#C8DCF0',
-    badge: null,
-  },
-  {
-    name: 'Amber Bead Wrap Bracelet',
-    brand: 'Glamour Exclusive',
-    price: '€29',
-    img: '/images/amber-bracelet.jpg',
-    color: '#F5E0C8',
-    badge: 'New In',
-  },
-  {
-    name: 'Wide Leg Linen Trouser',
-    brand: 'Robell',
-    price: '€95',
-    img: null,
-    color: '#EAE0D8',
-    badge: null,
-  },
-  {
-    name: 'Midi Wrap Dress',
+    name: 'Sage Embroidered Linen Dress',
     brand: 'Marie Mero',
-    price: '€129',
-    img: null,
-    color: '#D4C5BB',
+    price: '€139',
+    img: '/images/khaki-linen-dress.jpg',
     badge: null,
+    pos: 'top center',
   },
   {
-    name: 'Merino Cardigan',
-    brand: 'Masai',
-    price: '€110',
-    img: null,
-    color: '#C4B5A5',
+    name: 'Navy Fish Print Co-Ord',
+    brand: 'Deck',
+    price: '€129',
+    img: '/images/fish-print-co-ord.jpg',
+    badge: 'New In',
+    pos: 'top center',
+  },
+  {
+    name: 'Cream Embroidered Linen Dress',
+    brand: 'Marie Mero',
+    price: '€135',
+    img: '/images/cream-linen-dress.jpg',
     badge: null,
+    pos: 'top center',
+  },
+  {
+    name: 'Red Linen Co-Ord Set',
+    brand: 'Masai',
+    price: '€225',
+    img: '/images/red-linen-set.jpg',
+    badge: 'New In',
+    pos: 'top center',
+  },
+  {
+    name: 'Mint Polka Dot Knit Top',
+    brand: 'Robell',
+    price: '€89',
+    img: '/images/mint-polka-dot-top.jpg',
+    badge: null,
+    pos: 'top center',
+  },
+  {
+    name: 'Pink Zebra Print Midi Dress',
+    brand: 'Marie Mero',
+    price: '€149',
+    img: '/images/pink-zebra-dress.jpg',
+    badge: 'New In',
+    pos: 'top center',
+  },
+  {
+    name: 'Blue Zebra Print Midi Dress',
+    brand: 'Marie Mero',
+    price: '€149',
+    img: '/images/blue-zebra-dress.jpg',
+    badge: null,
+    pos: 'top center',
+  },
+  {
+    name: 'Boho Patchwork Maxi Dress',
+    brand: 'Peruzzi',
+    price: '€169',
+    img: '/images/boho-maxi-dress.jpg',
+    badge: 'New In',
+    pos: 'top center',
+  },
+  {
+    name: 'Graphic Print Tee',
+    brand: 'Deck',
+    price: '€59',
+    img: '/images/graphic-tee.jpg',
+    badge: null,
+    pos: 'top center',
   },
 ];
 ---
 
 <section id="new-arrivals" style="background-color: #FAF7F4; padding: 100px 24px;">
-  <div style="max-width: 1200px; margin: 0 auto;">
+  <div style="max-width: 1260px; margin: 0 auto;">
 
-    <!-- Section heading -->
     <div style="margin-bottom: 64px;">
-      <p style="font-family: 'DM Sans', sans-serif; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: #9E9085; margin-bottom: 12px;">
+      <p style="font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:#9E9085;margin-bottom:12px;">
         Just In
       </p>
-      <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 5vw, 64px); font-weight: 300; color: #2C2C2C; line-height: 1.05; margin: 0 0 16px;">
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5vw,64px);font-weight:300;color:#2C2C2C;line-height:1.05;margin:0 0 16px;">
         New This Week
       </h2>
-      <p style="font-family: 'DM Sans', sans-serif; font-size: 15px; color: #9E9085; max-width: 480px; line-height: 1.7; margin: 0;">
-        Fresh styles from Peruzzi, Masai &amp; more — updated every week
+      <p style="font-family:'DM Sans',sans-serif;font-size:15px;color:#9E9085;max-width:520px;line-height:1.7;margin:0;">
+        Fresh styles from Peruzzi, Masai, Marie Mero, Deck &amp; Robell — updated every week
       </p>
     </div>
 
-    <!-- Product Grid -->
-    <div class="product-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;">
-      {products.map((product) => (
-        <article
-          class="product-card"
-          style="border-radius: 6px; overflow: hidden; background-color: #FFFFFF; cursor: pointer; box-shadow: 0 2px 12px rgba(44,44,44,0.06);"
-        >
-          <!-- Image area -->
-          <div
-            class="card-image"
-            style={`background-color: ${product.color}; height: 320px; position: relative; overflow: hidden;`}
-          >
-            {product.img ? (
-              <div class="card-image-inner" style="width: 100%; height: 100%; transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);">
-                <img
-                  src={product.img}
-                  alt={product.name}
-                  loading="lazy"
-                  style="width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block;"
-                  onerror={`this.parentElement.style.display='none'; this.parentElement.parentElement.querySelector('.card-fallback').style.display='flex';`}
-                />
-              </div>
-            ) : null}
-
-            <!-- Fallback shown when no image or image fails -->
-            <div
-              class="card-fallback"
-              style={`display: ${product.img ? 'none' : 'flex'}; width: 100%; height: 100%; align-items: center; justify-content: center; position: ${product.img ? 'absolute' : 'relative'}; inset: 0;`}
-            >
-              <span style="font-family: 'Cormorant Garamond', serif; font-size: 100px; font-weight: 300; color: rgba(0,0,0,0.07); line-height: 1; user-select: none;">
-                {product.brand.charAt(0)}
-              </span>
+    <div class="product-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
+      {products.map((p) => (
+        <article class="product-card" style="border-radius:6px;overflow:hidden;background:#fff;cursor:pointer;box-shadow:0 2px 16px rgba(44,44,44,0.07);">
+          <div class="card-image" style="height:340px;position:relative;overflow:hidden;background:#F5F0EB;">
+            <div class="card-image-inner" style="width:100%;height:100%;transition:transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);">
+              <img
+                src={p.img}
+                alt={p.name}
+                loading="lazy"
+                style={`width:100%;height:100%;object-fit:cover;object-position:${p.pos};display:block;`}
+              />
             </div>
-
-            <!-- Badge -->
-            {product.badge && (
-              <span
-                style="position: absolute; top: 14px; left: 14px; background-color: #D4819A; color: #FFFFFF; font-family: 'DM Sans', sans-serif; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 20px;"
-              >
-                {product.badge}
+            {p.badge && (
+              <span style="position:absolute;top:12px;left:12px;background:#D4819A;color:#fff;font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;padding:4px 10px;border-radius:20px;">
+                {p.badge}
               </span>
             )}
           </div>
-
-          <!-- Info -->
-          <div style="padding: 20px 22px 24px; background-color: #FFFFFF;">
-            <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; color: #2C2C2C; margin: 0 0 5px; line-height: 1.3;">
-              {product.name}
+          <div style="padding:16px 18px 20px;background:#fff;">
+            <h3 style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:#2C2C2C;margin:0 0 4px;line-height:1.3;">
+              {p.name}
             </h3>
-            <p style="font-family: 'DM Sans', sans-serif; font-size: 11px; color: #9E9085; margin: 0 0 10px; letter-spacing: 0.08em; text-transform: uppercase;">
-              {product.brand}
+            <p style="font-family:'DM Sans',sans-serif;font-size:11px;color:#9E9085;margin:0 0 10px;letter-spacing:0.08em;text-transform:uppercase;">
+              {p.brand}
             </p>
-            <div style="display: flex; align-items: center; justify-content: space-between;">
-              <p style="font-family: 'DM Sans', sans-serif; font-size: 17px; font-weight: 500; color: #D4819A; margin: 0;">
-                {product.price}
-              </p>
-              <span
-                style="font-family: 'DM Sans', sans-serif; font-size: 11px; color: #9E9085; letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 1px solid rgba(158,144,133,0.4); padding-bottom: 1px; cursor: pointer;"
-              >
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+              <span style="font-family:'DM Sans',sans-serif;font-size:17px;font-weight:500;color:#D4819A;">
+                {p.price}
+              </span>
+              <span style="font-family:'DM Sans',sans-serif;font-size:11px;color:#9E9085;letter-spacing:0.08em;text-transform:uppercase;border-bottom:1px solid rgba(158,144,133,0.5);padding-bottom:1px;cursor:pointer;">
                 Enquire
               </span>
             </div>
@@ -150,16 +152,11 @@ const products = [
       ))}
     </div>
 
-    <!-- Instagram link -->
-    <div style="text-align: center; margin-top: 60px;">
-      <p style="font-family: 'DM Sans', sans-serif; font-size: 14px; color: #9E9085; line-height: 1.7;">
+    <div style="text-align:center;margin-top:56px;">
+      <p style="font-family:'DM Sans',sans-serif;font-size:14px;color:#9E9085;line-height:1.7;">
         New stock arriving weekly — follow us on Instagram{' '}
-        <a
-          href="https://www.instagram.com/glamour.boutique.enniscorthy"
-          target="_blank"
-          rel="noopener noreferrer"
-          style="color: #D4819A; text-decoration: underline; text-underline-offset: 3px;"
-        >
+        <a href="https://www.instagram.com/glamour.boutique.enniscorthy" target="_blank" rel="noopener noreferrer"
+           style="color:#D4819A;text-decoration:underline;text-underline-offset:3px;">
           @glamour.boutique.enni
         </a>
       </p>
@@ -169,18 +166,10 @@ const products = [
 </section>
 
 <style>
-  @media (max-width: 1024px) {
-    .product-grid { grid-template-columns: repeat(2, 1fr) !important; }
-  }
-  @media (max-width: 600px) {
-    .product-grid { grid-template-columns: 1fr !important; }
-    #new-arrivals { padding: 60px 16px !important; }
-  }
-  .product-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 60px rgba(44,44,44,0.12) !important;
-  }
-  .product-card:hover .card-image-inner {
-    transform: scale(1.06);
-  }
+  @media (max-width: 1100px) { .product-grid { grid-template-columns: repeat(3,1fr) !important; } }
+  @media (max-width: 768px)  { .product-grid { grid-template-columns: repeat(2,1fr) !important; } #new-arrivals { padding: 60px 16px !important; } }
+  @media (max-width: 480px)  { .product-grid { grid-template-columns: 1fr !important; } }
+  .product-card { transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.4s cubic-bezier(0.25,0.46,0.45,0.94); }
+  .product-card:hover { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(44,44,44,0.13) !important; }
+  .product-card:hover .card-image-inner { transform: scale(1.06); }
 </style>

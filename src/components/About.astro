@@ -12,10 +12,22 @@
     <!-- Left sticky panel -->
     <div
       class="about-sticky"
-      style="flex: 0 0 400px; min-height: 500px; background-color: #F2C4D0; border-radius: 4px; display: flex; align-items: center; justify-content: center; position: sticky; top: 100px; overflow: hidden;"
+      style="flex: 0 0 420px; min-height: 560px; border-radius: 4px; position: sticky; top: 100px; overflow: hidden; isolation: isolate;"
     >
-      <!-- Watermark text -->
-      <div style="text-align: center; padding: 40px; position: relative;">
+      <!-- Real store photo -->
+      <img
+        src="/images/store-flatlay.jpg"
+        alt="Inside Glamour Boutique Enniscorthy"
+        loading="lazy"
+        style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;min-height:560px;"
+      />
+      <!-- Est. overlay -->
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:28px 32px;background:linear-gradient(to top,rgba(44,44,44,0.75) 0%,transparent 100%);">
+        <p style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:#fff;margin:0;letter-spacing:0.08em;">Est. 1999</p>
+        <p style="font-family:'DM Sans',sans-serif;font-size:12px;color:rgba(255,255,255,0.7);margin:4px 0 0;letter-spacing:0.15em;text-transform:uppercase;">26 Main Street, Enniscorthy</p>
+      </div>
+      <!-- Hidden watermark structure kept for graceful fallback -->
+      <div style="display:none;text-align: center; padding: 40px; position: relative;">
         <span
           style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: 'Cormorant Garamond', serif; font-size: 120px; font-weight: 300; color: rgba(212,129,154,0.15); white-space: nowrap; user-select: none; pointer-events: none; line-height: 1;"
         >
