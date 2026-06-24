@@ -7,6 +7,8 @@ const products = [
     img: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&h=750&fit=crop&q=80',
     badge: 'New In',
     pos: 'center',
+    desc: 'Hand-finished drop earrings in a soft orchid tone. Lightweight enough for all-day wear, with just enough sparkle to lift a simple outfit.',
+    detail: 'Gold-tone hooks · Nickel-free',
   },
   {
     name: 'Tropical Tie-Front Top',
@@ -15,6 +17,8 @@ const products = [
     img: 'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=600&h=750&fit=crop&q=80',
     badge: 'New In',
     pos: 'center',
+    desc: 'A breezy tie-front top in a vivid tropical print. Flattering on every figure and perfect layered over linen trousers for warmer days.',
+    detail: 'Sizes 8–18 · Viscose blend',
   },
   {
     name: 'Blue Linen Zip-Front Top',
@@ -23,6 +27,8 @@ const products = [
     img: 'https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=600&h=750&fit=crop&q=80',
     badge: 'New In',
     pos: 'center',
+    desc: 'Relaxed Danish design in pure washed linen. The zip-front detail makes it easy to wear open or closed — effortless, artistic, and endlessly versatile.',
+    detail: 'Sizes XS–XL · 100% Linen',
   },
   {
     name: 'Sage Embroidered Linen Dress',
@@ -31,6 +37,8 @@ const products = [
     img: 'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600&h=750&fit=crop&q=80',
     badge: null,
     pos: 'center',
+    desc: 'A softly tailored linen dress in a gentle sage, finished with delicate tonal embroidery. A quiet hero piece for occasions and everyday alike.',
+    detail: 'Sizes 10–20 · Linen mix',
   },
   {
     name: 'Navy Fish Print Co-Ord',
@@ -39,6 +47,8 @@ const products = [
     img: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&h=750&fit=crop&q=80',
     badge: 'New In',
     pos: 'center',
+    desc: 'A playful navy co-ord with a French coastal feel. Wear the pieces together for a put-together look, or split them across your wardrobe.',
+    detail: 'Sizes 8–18 · Two-piece set',
   },
   {
     name: 'Cream Embroidered Linen Dress',
@@ -47,6 +57,8 @@ const products = [
     img: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&h=750&fit=crop&q=80',
     badge: null,
     pos: 'center',
+    desc: 'Timeless cream linen with fine embroidered detailing along the neckline. Cool, elegant and beautifully easy to wear through the season.',
+    detail: 'Sizes 10–20 · Linen mix',
   },
   {
     name: 'Red Linen Co-Ord Set',
@@ -55,6 +67,8 @@ const products = [
     img: 'https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?w=600&h=750&fit=crop&q=80',
     badge: 'New In',
     pos: 'center',
+    desc: 'A statement red two-piece in soft structured linen. Confident, contemporary and endlessly mix-and-matchable — a true wardrobe investment.',
+    detail: 'Sizes XS–XL · Two-piece set',
   },
   {
     name: 'Mint Knit Textured Top',
@@ -63,6 +77,8 @@ const products = [
     img: 'https://images.unsplash.com/photo-1532453288672-5b4ee7a33a9c?w=600&h=750&fit=crop&q=80',
     badge: null,
     pos: 'center',
+    desc: 'A finely textured knit in fresh mint. The precision-cut shape skims the body beautifully and pairs perfectly with Robell trousers.',
+    detail: 'Sizes 10–20 · Stretch knit',
   },
   {
     name: 'Pink Floral Midi Dress',
@@ -71,6 +87,8 @@ const products = [
     img: 'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&h=750&fit=crop&q=80',
     badge: 'New In',
     pos: 'center',
+    desc: 'A romantic floral midi in soft pinks. The flattering A-line silhouette moves beautifully — ideal for weddings, garden parties and beyond.',
+    detail: 'Sizes 8–18 · Midi length',
   },
   {
     name: 'Blue Print Midi Dress',
@@ -79,6 +97,8 @@ const products = [
     img: 'https://images.unsplash.com/photo-1524234107056-1c1f48f64ab8?w=600&h=750&fit=crop&q=80',
     badge: null,
     pos: 'center',
+    desc: 'A striking printed midi in cool blue tones. Effortlessly graceful, it takes you from a daytime lunch to an evening out with just a change of shoes.',
+    detail: 'Sizes 8–18 · Midi length',
   },
   {
     name: 'Boho Patchwork Maxi Dress',
@@ -87,6 +107,8 @@ const products = [
     img: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=600&h=750&fit=crop&q=80',
     badge: 'New In',
     pos: 'center',
+    desc: 'A free-spirited patchwork maxi with Mediterranean soul. Relaxed, romantic and made to twirl — your go-to for sun-filled days.',
+    detail: 'Sizes 8–18 · Maxi length',
   },
   {
     name: 'Graphic Print Tee',
@@ -95,6 +117,8 @@ const products = [
     img: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=750&fit=crop&q=80',
     badge: null,
     pos: 'center',
+    desc: 'An easy graphic tee with relaxed French styling. The perfect throw-on-and-go piece — soft cotton that only gets better with wear.',
+    detail: 'Sizes XS–XL · Cotton',
   },
 ];
 ---
@@ -111,27 +135,50 @@ const products = [
         New This Week
       </h2>
       <p style="font-family:'DM Sans',sans-serif;font-size:15px;color:#9E9085;max-width:520px;line-height:1.7;margin:0;">
-        Fresh styles from Peruzzi, Masai, Marie Mero, Deck &amp; Robell — updated every week
+        Fresh styles from Peruzzi, Masai, Marie Mero, Deck &amp; Robell — updated every week. Tap any piece to take a closer look.
       </p>
     </div>
 
     <div class="product-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
       {products.map((p) => (
-        <article class="product-card" style="border-radius:6px;overflow:hidden;background:#fff;cursor:pointer;box-shadow:0 2px 16px rgba(44,44,44,0.07);">
+        <article
+          class="product-card"
+          role="button"
+          tabindex="0"
+          aria-label={`View details for ${p.name}`}
+          data-name={p.name}
+          data-brand={p.brand}
+          data-price={p.price}
+          data-img={p.img.replace('w=600&h=750', 'w=900&h=1125')}
+          data-pos={p.pos}
+          data-badge={p.badge ?? ''}
+          data-desc={p.desc}
+          data-detail={p.detail}
+          style="border-radius:6px;overflow:hidden;background:#fff;cursor:pointer;box-shadow:0 2px 16px rgba(44,44,44,0.07);"
+        >
           <div class="card-image" style="aspect-ratio:3/4;position:relative;overflow:hidden;background:#F5F0EB;">
-            <div class="card-image-inner" style="position:absolute;inset:0;transition:transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);">
+            <div class="card-image-inner" style="position:absolute;inset:0;transition:transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);">
               <img
                 src={p.img}
                 alt={p.name}
                 loading="lazy"
+                decoding="async"
+                width="600"
+                height="750"
                 style={`width:100%;height:100%;object-fit:cover;object-position:${p.pos};display:block;`}
               />
             </div>
             {p.badge && (
-              <span style="position:absolute;top:12px;left:12px;background:#D4819A;color:#fff;font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;padding:4px 10px;border-radius:20px;">
+              <span style="position:absolute;top:12px;left:12px;background:#D4819A;color:#fff;font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;padding:4px 10px;border-radius:20px;z-index:2;">
                 {p.badge}
               </span>
             )}
+            <!-- Hover overlay -->
+            <div class="card-overlay" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(44,44,44,0.45) 0%,transparent 55%);opacity:0;transition:opacity 0.4s ease;display:flex;align-items:flex-end;justify-content:center;padding-bottom:18px;z-index:1;">
+              <span style="font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:#fff;background:rgba(212,129,154,0.95);padding:9px 20px;border-radius:100px;">
+                View Details
+              </span>
+            </div>
           </div>
           <div style="padding:16px 18px 20px;background:#fff;">
             <h3 style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:#2C2C2C;margin:0 0 4px;line-height:1.3;">
@@ -144,7 +191,7 @@ const products = [
               <span style="font-family:'DM Sans',sans-serif;font-size:17px;font-weight:500;color:#D4819A;">
                 {p.price}
               </span>
-              <span style="font-family:'DM Sans',sans-serif;font-size:11px;color:#9E9085;letter-spacing:0.08em;text-transform:uppercase;border-bottom:1px solid rgba(158,144,133,0.5);padding-bottom:1px;cursor:pointer;">
+              <span style="font-family:'DM Sans',sans-serif;font-size:11px;color:#9E9085;letter-spacing:0.08em;text-transform:uppercase;border-bottom:1px solid rgba(158,144,133,0.5);padding-bottom:1px;">
                 Enquire
               </span>
             </div>
@@ -166,11 +213,189 @@ const products = [
   </div>
 </section>
 
+<!-- ─── PRODUCT QUICK-VIEW MODAL ──────────────────────────────────────────── -->
+<div
+  id="product-modal"
+  class="product-modal"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="pm-name"
+  aria-hidden="true"
+>
+  <div class="product-modal-backdrop" data-close></div>
+  <div class="product-modal-panel" role="document">
+    <button class="product-modal-close" aria-label="Close" data-close>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <div class="product-modal-grid">
+      <div class="pm-image-wrap">
+        <img id="pm-img" src="" alt="" decoding="async" />
+        <span id="pm-badge" class="pm-badge"></span>
+      </div>
+      <div class="pm-info">
+        <p id="pm-brand" class="pm-brand"></p>
+        <h3 id="pm-name" class="pm-name"></h3>
+        <p id="pm-price" class="pm-price"></p>
+        <div class="pm-rule"></div>
+        <p id="pm-desc" class="pm-desc"></p>
+        <p id="pm-detail" class="pm-detail"></p>
+        <div class="pm-actions">
+          <a id="pm-call" href="tel:0872954347" class="pm-btn pm-btn-primary">Enquire by Phone</a>
+          <a id="pm-insta" href="https://www.instagram.com/glamour.boutique.enniscorthy" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-ghost">Message on Instagram</a>
+        </div>
+        <p class="pm-note">Available in store at 26 Main Street, Enniscorthy. Pop in to try it on — new stock weekly.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <style>
   @media (max-width: 1100px) { .product-grid { grid-template-columns: repeat(3,1fr) !important; } }
   @media (max-width: 768px)  { .product-grid { grid-template-columns: repeat(2,1fr) !important; } #new-arrivals { padding: 60px 16px !important; } }
   @media (max-width: 480px)  { .product-grid { grid-template-columns: 1fr !important; } }
-  .product-card { transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.4s cubic-bezier(0.25,0.46,0.45,0.94); }
-  .product-card:hover { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(44,44,44,0.13) !important; }
-  .product-card:hover .card-image-inner { transform: scale(1.06); }
+
+  .product-card { transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.4s cubic-bezier(0.25,0.46,0.45,0.94); outline: none; }
+  .product-card:hover, .product-card:focus-visible { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(44,44,44,0.13) !important; }
+  .product-card:focus-visible { box-shadow: 0 0 0 2px #D4819A, 0 24px 60px rgba(44,44,44,0.13) !important; }
+  .product-card:hover .card-image-inner, .product-card:focus-visible .card-image-inner { transform: scale(1.06); }
+  .product-card:hover .card-overlay, .product-card:focus-visible .card-overlay { opacity: 1; }
+  /* Touch devices: show the View Details hint without hover */
+  @media (hover: none) {
+    .card-overlay { opacity: 1 !important; background: linear-gradient(to top, rgba(44,44,44,0.30) 0%, transparent 45%) !important; }
+  }
+
+  /* ─── MODAL ─── */
+  .product-modal {
+    position: fixed; inset: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: center;
+    padding: 24px;
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  .product-modal.open { opacity: 1; visibility: visible; }
+  .product-modal-backdrop {
+    position: absolute; inset: 0;
+    background: rgba(30,24,26,0.55);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+  .product-modal-panel {
+    position: relative; z-index: 1;
+    width: 100%; max-width: 860px; max-height: 90vh;
+    background: #fff; border-radius: 10px; overflow: hidden;
+    box-shadow: 0 40px 120px rgba(44,44,44,0.35);
+    transform: translateY(16px) scale(0.98);
+    transition: transform 0.35s cubic-bezier(0.22,1,0.36,1);
+  }
+  .product-modal.open .product-modal-panel { transform: translateY(0) scale(1); }
+  .product-modal-close {
+    position: absolute; top: 14px; right: 14px; z-index: 3;
+    width: 40px; height: 40px; border-radius: 50%;
+    border: none; cursor: pointer;
+    background: rgba(255,255,255,0.9); color: #2C2C2C;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .product-modal-close:hover { background: #FAF7F4; transform: rotate(90deg); }
+  .product-modal-grid { display: grid; grid-template-columns: 1fr 1fr; max-height: 90vh; }
+  .pm-image-wrap { position: relative; background: #F5F0EB; }
+  .pm-image-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 420px; }
+  .pm-badge {
+    position: absolute; top: 16px; left: 16px;
+    background: #D4819A; color: #fff;
+    font-family: 'DM Sans', sans-serif; font-size: 10px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 5px 12px; border-radius: 20px;
+  }
+  .pm-badge:empty { display: none; }
+  .pm-info { padding: 48px 44px; display: flex; flex-direction: column; overflow-y: auto; }
+  .pm-brand { font-family: 'DM Sans', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #9E9085; margin: 0 0 12px; }
+  .pm-name { font-family: 'Cormorant Garamond', serif; font-size: 34px; font-weight: 300; color: #2C2C2C; line-height: 1.15; margin: 0 0 14px; }
+  .pm-price { font-family: 'DM Sans', sans-serif; font-size: 22px; font-weight: 500; color: #D4819A; margin: 0 0 22px; }
+  .pm-rule { width: 40px; height: 1px; background: #D4819A; margin: 0 0 22px; }
+  .pm-desc { font-family: 'DM Sans', sans-serif; font-size: 15px; color: #2C2C2C; opacity: 0.85; line-height: 1.8; margin: 0 0 16px; }
+  .pm-detail { font-family: 'DM Sans', sans-serif; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #9E9085; margin: 0 0 32px; }
+  .pm-actions { display: flex; flex-direction: column; gap: 12px; margin-bottom: 22px; }
+  .pm-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 15px 28px; border-radius: 100px;
+    font-family: 'DM Sans', sans-serif; font-size: 12px;
+    letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  }
+  .pm-btn-primary { background: #D4819A; color: #fff; }
+  .pm-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(212,129,154,0.4); }
+  .pm-btn-ghost { background: transparent; color: #2C2C2C; border: 1px solid rgba(158,144,133,0.4); }
+  .pm-btn-ghost:hover { background: #FAF7F4; border-color: #D4819A; color: #D4819A; }
+  .pm-note { font-family: 'DM Sans', sans-serif; font-size: 12px; color: #9E9085; line-height: 1.6; margin: 0; }
+
+  @media (max-width: 720px) {
+    .product-modal { padding: 0; align-items: flex-end; }
+    .product-modal-panel { max-width: 100%; max-height: 92vh; border-radius: 16px 16px 0 0; transform: translateY(100%); }
+    .product-modal.open .product-modal-panel { transform: translateY(0); }
+    .product-modal-grid { grid-template-columns: 1fr; overflow-y: auto; }
+    .pm-image-wrap img { min-height: 0; aspect-ratio: 4/3; }
+    .pm-info { padding: 32px 24px 40px; }
+    .pm-name { font-size: 28px; }
+  }
 </style>
+
+<script>
+  const modal = document.getElementById('product-modal');
+  const cards = document.querySelectorAll<HTMLElement>('.product-card');
+  let lastFocused: HTMLElement | null = null;
+
+  const el = (id: string) => document.getElementById(id);
+
+  function openModal(card: HTMLElement) {
+    if (!modal) return;
+    const d = card.dataset;
+    const img = el('pm-img') as HTMLImageElement | null;
+    if (img) {
+      img.src = d.img || '';
+      img.alt = d.name || '';
+      img.style.objectPosition = d.pos || 'center';
+    }
+    (el('pm-brand') as HTMLElement).textContent = d.brand || '';
+    (el('pm-name') as HTMLElement).textContent = d.name || '';
+    (el('pm-price') as HTMLElement).textContent = d.price || '';
+    (el('pm-desc') as HTMLElement).textContent = d.desc || '';
+    (el('pm-detail') as HTMLElement).textContent = d.detail || '';
+    (el('pm-badge') as HTMLElement).textContent = d.badge || '';
+
+    lastFocused = card;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    const closeBtn = modal.querySelector<HTMLElement>('.product-modal-close');
+    closeBtn?.focus();
+  }
+
+  function closeModal() {
+    if (!modal) return;
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    lastFocused?.focus();
+  }
+
+  cards.forEach((card) => {
+    card.addEventListener('click', () => openModal(card));
+    card.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openModal(card);
+      }
+    });
+  });
+
+  modal?.querySelectorAll('[data-close]').forEach((node) => {
+    node.addEventListener('click', closeModal);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal?.classList.contains('open')) closeModal();
+  });
+</script>

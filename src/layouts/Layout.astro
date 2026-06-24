@@ -17,6 +17,10 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Speed up third-party asset loading -->
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/logo.jpg" />
     <meta name="description" content={description} />
@@ -59,4 +63,22 @@ const {
 
   (window as any).gsap = gsap;
   (window as any).ScrollTrigger = ScrollTrigger;
+
+  // Smooth scroll for in-page anchor links (works with or without Lenis)
+  document.addEventListener('click', (e) => {
+    const link = (e.target as HTMLElement)?.closest('a[href^="#"]') as HTMLAnchorElement | null;
+    if (!link) return;
+    const id = link.getAttribute('href');
+    if (!id || id === '#') return;
+    const target = document.querySelector(id);
+    if (!target) return;
+    e.preventDefault();
+    const lenis = (window as any).lenis;
+    if (lenis) {
+      lenis.scrollTo(target as HTMLElement, { offset: -70, duration: 1.2 });
+    } else {
+      const y = (target as HTMLElement).getBoundingClientRect().top + window.scrollY - 70;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  });
 </script>
