@@ -156,6 +156,11 @@ html {
   .hero-sub,
   .hero-cta {
     opacity: 1 !important;
+    transform: none !important;
+  }
+  /* Hero text sizing on small screens */
+  .hero-section {
+    padding: 0 20px;
   }
 }
 
@@ -234,5 +239,71 @@ html {
   }
   #new-arrivals {
     padding: 40px 16px !important;
+  }
+}
+
+/* ── NAV BRAND NAME: protect against overflow on tiny phones ─────────────── */
+.nav-brand-name {
+  font-size: clamp(14px, 4vw, 18px) !important;
+}
+@media (max-width: 360px) {
+  .nav-brand-name { display: none; }
+}
+
+/* ── NAV HAMBURGER OPEN STATE ─────────────────────────────────────────────── */
+.mobile-menu-open .nav-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.mobile-menu-open .nav-bar:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.mobile-menu-open .nav-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); width: 24px; }
+.nav-bar { transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease, background-color 0.4s ease; }
+
+/* ── VISIT SECTION MOBILE ─────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  #visit {
+    padding: 64px 20px !important;
+  }
+  .visit-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+  /* Map height on mobile */
+  .visit-grid > div:last-child {
+    height: 300px !important;
+  }
+}
+
+/* ── ABOUT SECTION MOBILE ─────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .about-inner {
+    flex-direction: column !important;
+    gap: 32px !important;
+    padding: 56px 20px !important;
+  }
+  .about-sticky {
+    position: relative !important;
+    top: auto !important;
+    flex: none !important;
+    width: 100% !important;
+    min-height: 260px !important;
+  }
+}
+
+/* ── FOOTER MOBILE ────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  footer {
+    padding: 48px 20px !important;
+  }
+}
+
+/* ── BRAND SHOWCASE MOBILE ────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .brand-panel {
+    height: 300px !important;
+  }
+  /* Always use a strong left-side overlay so left-aligned text stays readable */
+  .brand-panel > div[style*="linear-gradient"] {
+    background: linear-gradient(to right, rgba(20,20,20,0.75) 0%, rgba(20,20,20,0.4) 60%, transparent 100%) !important;
+  }
+  .brand-panel h3 {
+    font-size: clamp(22px, 6vw, 36px) !important;
   }
 }
